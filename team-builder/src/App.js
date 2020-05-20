@@ -2,16 +2,18 @@ import React, {useState} from 'react';
 import {v4 as uuid} from 'uuid'
 import './App.css';
 import Form from './Form'
+import Member from './Member'
 
-const initialList = {
+const initialList = [
+{
   id: uuid(),
-  name: '',
-  email: '',
-  role: ''
-}
-
+  membername: 'Nicole',
+  email: 'nicole.y.osborn@gmail.com',
+  role: 'Front End'
+},
+]
 const initialFormValues = {
-  name: '',
+  membername: '',
   email: '',
   role: '',
 }
@@ -28,7 +30,7 @@ function App() {
 
   const onSubmit = evt=>{
     evt.preventDefault()
-    if(!formValues.email.trim() || !formValues.username.trim() || !formValues.role.trim()){
+    if(!formValues.email.trim() || !formValues.membername.trim() || !formValues.role.trim()){
       return
   }
 
@@ -44,6 +46,15 @@ function App() {
         values = {formValues}
         onInputChange={onInputChange}
         onSubmit={onSubmit}/>
+
+      {
+        members.map(member =>{
+          return(
+            <Member key={member.id} details={member}/>
+          )
+        })
+      }  
+        
     </div>
   );
 } export default App

@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function Form(props){
     const {
         values,
@@ -16,8 +17,8 @@ export default function Form(props){
 
             <div className = 'inputs'>
                 <label>Name:&nbsp;
-                    <input type='text' placeholder="Name" maxLength='100' name='name'
-                    value={values.username}
+                    <input type='text' placeholder="Name" maxLength='100' name='membername'
+                    value={values.membername}
                     onChange={onInputChange}/>
                 </label>
 
